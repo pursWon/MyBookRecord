@@ -17,7 +17,8 @@
 		1C1A9F912937ADDB000CE51D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A9F902937ADDB000CE51D /* DetailViewController.swift */; };
 		1C1A9F932937AE12000CE51D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A9F922937AE12000CE51D /* AddViewController.swift */; };
 		1C1A9F952937AF91000CE51D /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A9F942937AF91000CE51D /* BookCell.swift */; };
-		D04034EC293DE871006B2048 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04034EB293DE871006B2048 /* Alert.swift */; };
+		D04034EC293DE871006B2048 /* DetailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04034EB293DE871006B2048 /* DetailAlert.swift */; };
+		D04034EE2940EF0C006B2048 /* AddAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04034ED2940EF0C006B2048 /* AddAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		1C1A9F902937ADDB000CE51D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1C1A9F922937AE12000CE51D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		1C1A9F942937AF91000CE51D /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
-		D04034EB293DE871006B2048 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D04034EB293DE871006B2048 /* DetailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlert.swift; sourceTree = "<group>"; };
+		D04034ED2940EF0C006B2048 /* AddAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,8 @@
 				1C1A9F922937AE12000CE51D /* AddViewController.swift */,
 				1C1A9F942937AF91000CE51D /* BookCell.swift */,
 				1C1A9F8E2937A9BB000CE51D /* Book.swift */,
-				D04034EB293DE871006B2048 /* Alert.swift */,
+				D04034EB293DE871006B2048 /* DetailAlert.swift */,
+				D04034ED2940EF0C006B2048 /* AddAlert.swift */,
 				1C1A9F802937A9AD000CE51D /* Main.storyboard */,
 				1C1A9F832937A9AE000CE51D /* Assets.xcassets */,
 				1C1A9F852937A9AE000CE51D /* LaunchScreen.storyboard */,
@@ -153,12 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C1A9F912937ADDB000CE51D /* DetailViewController.swift in Sources */,
+				D04034EE2940EF0C006B2048 /* AddAlert.swift in Sources */,
 				1C1A9F7F2937A9AD000CE51D /* MainViewController.swift in Sources */,
 				1C1A9F932937AE12000CE51D /* AddViewController.swift in Sources */,
 				1C1A9F952937AF91000CE51D /* BookCell.swift in Sources */,
 				1C1A9F7B2937A9AD000CE51D /* AppDelegate.swift in Sources */,
 				1C1A9F8F2937A9BB000CE51D /* Book.swift in Sources */,
-				D04034EC293DE871006B2048 /* Alert.swift in Sources */,
+				D04034EC293DE871006B2048 /* DetailAlert.swift in Sources */,
 				1C1A9F7D2937A9AD000CE51D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

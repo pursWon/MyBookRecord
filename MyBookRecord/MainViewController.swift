@@ -23,8 +23,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         guard let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController" ) as? AddViewController else { return }
         addVC.title = "도서 추가하기"
-        self.navigationController?.pushViewController(addVC, animated: true)
-        
+        navigationController?.pushViewController(addVC, animated: true)
     }
 // MARK: - TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,8 +50,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         detailVC.title = "상세 정보"
         detailVC.index = indexPath.row
-        print(detailVC.index!)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
