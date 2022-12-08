@@ -70,19 +70,59 @@
 			children = (
 				1C1A9F7A2937A9AD000CE51D /* AppDelegate.swift */,
 				1C1A9F7C2937A9AD000CE51D /* SceneDelegate.swift */,
-				1C1A9F7E2937A9AD000CE51D /* MainViewController.swift */,
-				1C1A9F902937ADDB000CE51D /* DetailViewController.swift */,
-				1C1A9F922937AE12000CE51D /* AddViewController.swift */,
-				1C1A9F942937AF91000CE51D /* BookCell.swift */,
-				1C1A9F8E2937A9BB000CE51D /* Book.swift */,
-				D04034EB293DE871006B2048 /* DetailAlert.swift */,
-				D04034ED2940EF0C006B2048 /* AddAlert.swift */,
-				1C1A9F802937A9AD000CE51D /* Main.storyboard */,
-				1C1A9F832937A9AE000CE51D /* Assets.xcassets */,
-				1C1A9F852937A9AE000CE51D /* LaunchScreen.storyboard */,
+				D04034F12941DB23006B2048 /* Controller */,
+				D04034F22941DB34006B2048 /* View */,
+				D04034F02941DAEB006B2048 /* Model */,
+				D04034EF2941DADC006B2048 /* Alert */,
+				D04034F32941DB54006B2048 /* Resource */,
 				1C1A9F882937A9AE000CE51D /* Info.plist */,
 			);
 			path = MyBookRecord;
+			sourceTree = "<group>";
+		};
+		D04034EF2941DADC006B2048 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D04034ED2940EF0C006B2048 /* AddAlert.swift */,
+				D04034EB293DE871006B2048 /* DetailAlert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		D04034F02941DAEB006B2048 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C1A9F8E2937A9BB000CE51D /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D04034F12941DB23006B2048 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1C1A9F7E2937A9AD000CE51D /* MainViewController.swift */,
+				1C1A9F902937ADDB000CE51D /* DetailViewController.swift */,
+				1C1A9F922937AE12000CE51D /* AddViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D04034F22941DB34006B2048 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C1A9F942937AF91000CE51D /* BookCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D04034F32941DB54006B2048 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1C1A9F802937A9AD000CE51D /* Main.storyboard */,
+				1C1A9F832937A9AE000CE51D /* Assets.xcassets */,
+				1C1A9F852937A9AE000CE51D /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

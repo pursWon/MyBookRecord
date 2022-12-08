@@ -17,8 +17,6 @@ class AddViewController: UIViewController {
         authorTextField.placeholder = "작가의 이름을 입력해주세요."
     }
     
-    
-   
     @objc func addTapped() {
         if !titleTextField.text!.isEmpty && !authorTextField.text!.isEmpty && !contentTextField.text!.isEmpty {
         let book = Book(title: titleTextField.text, author: authorTextField.text, coverImage: defaultImage.image, introduction: contentTextField.text)

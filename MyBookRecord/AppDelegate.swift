@@ -1,7 +1,3 @@
-//
-// All rights reserved. by KeenKim 2022/12/01
-//
-
 import UIKit
 
 @available(iOS 13.0, *)
