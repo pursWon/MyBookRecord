@@ -4,9 +4,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - UI
     @IBOutlet weak var tableView: UITableView!
-    
-    // MARK: - Properties
-    
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +52,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController")
                 as? DetailViewController else { return }
-        
         detailVC.title = "상세 정보"
         detailVC.index = indexPath.row
         navigationController?.pushViewController(detailVC, animated: true)

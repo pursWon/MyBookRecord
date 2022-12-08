@@ -1,12 +1,12 @@
 import UIKit
 
 class AddViewController: UIViewController {
-
+// MARK: - UI
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
-
+// MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         contentTextField.placeholder = "이 책의 소개글을 작성해주세요."
@@ -16,7 +16,7 @@ class AddViewController: UIViewController {
         titleTextField.placeholder = "책 제목을 입력해주세요."
         authorTextField.placeholder = "작가의 이름을 입력해주세요."
     }
-    
+// MARK: - Actions
     @objc func addTapped() {
         if !titleTextField.text!.isEmpty && !authorTextField.text!.isEmpty && !contentTextField.text!.isEmpty {
         let book = Book(title: titleTextField.text, author: authorTextField.text, coverImage: defaultImage.image, introduction: contentTextField.text)
