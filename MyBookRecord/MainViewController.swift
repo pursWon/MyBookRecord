@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else { return UITableViewCell() }
-        cell.largeContentTitle = "나의 도서 목록"
         cell.bookTitleLabel.text = Book.BookData[indexPath.row].title
         cell.bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         cell.authorLabel.text = Book.BookData[indexPath.row].author
@@ -51,6 +50,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         detailVC.title = "상세 정보"
         detailVC.index = indexPath.row
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "나의 도서 목록"
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

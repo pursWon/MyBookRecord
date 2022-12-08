@@ -16,10 +16,11 @@ class AddViewController: UIViewController {
         titleTextField.placeholder = "책 제목을 입력해주세요."
         authorTextField.placeholder = "작가의 이름을 입력해주세요."
     }
+    
+    
    
     @objc func addTapped() {
         if !titleTextField.text!.isEmpty && !authorTextField.text!.isEmpty && !contentTextField.text!.isEmpty {
-        
         let book = Book(title: titleTextField.text, author: authorTextField.text, coverImage: defaultImage.image, introduction: contentTextField.text)
         Book.BookData.insert(book, at: 0)
         navigationController?.popViewController(animated: true)
