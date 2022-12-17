@@ -10,15 +10,20 @@ class DetailViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = Book.BookData[index!].coverImage
-        titleTextField.text = "\(Book.BookData[index!].title!) / \(Book.BookData[index!].author!)"
-        descriptionTextField.text = Book.BookData[index!].introduction
-        titleTextField.font = UIFont.boldSystemFont(ofSize: 18)
+        data()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action:
-                                                                #selector(saveButton))
+        #selector(saveButton))
         navigationItem.rightBarButtonItem?.tintColor = .red
+        titleTextField.font = UIFont.boldSystemFont(ofSize: 18)
         titleTextField.isEnabled = false
         descriptionTextField.isEditable = false
+    }
+    
+    func data() {
+        let data = Book.BookData[index!]
+        imageView.image = data.coverImage
+        titleTextField.text = "\(data.title!) / \(data.author!)"
+        descriptionTextField.text = data.introduction
     }
     // MARK: - Actions
     @IBAction func deleteButton(_ sender: UIButton) {
@@ -26,17 +31,19 @@ class DetailViewController: UIViewController {
     }
     
     @objc func saveButton() {
-        if navigationItem.rightBarButtonItem?.title == "수정" {
-            navigationItem.rightBarButtonItem?.title = "저장"
+        let barItem = navigationItem.rightBarButtonItem!
+        var data = Book.BookData[index!]
+        if barItem.title == "수정" {
+            barItem.title = "저장"
             titleTextField.isEnabled = true
             descriptionTextField.isEditable = true
             navigationItem.hidesBackButton = true
         } else {
             let title = titleTextField.text?.components(separatedBy: " / ")
-            Book.BookData[index!].coverImage = imageView.image
-            Book.BookData[index!].introduction = descriptionTextField.text
-            Book.BookData[index!].title = title![0]
-            Book.BookData[index!].author = title![1]
+            data.coverImage = imageView.image
+            data.introduction = descriptionTextField.text
+            data.title = title![0]
+            data.author = title![1]
             navigationController?.popViewController(animated: true)
         }
     }
