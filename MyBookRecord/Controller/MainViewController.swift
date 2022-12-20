@@ -1,65 +1,53 @@
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class MainViewController: UIViewController {
     // MARK: - UI
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        headerSet()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return Book.BookData.count
     }
     
-    func headerSet() {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 60))
-        let headerLabel = UILabel(frame: header.bounds)
-        headerLabel.text = "나의 도서 목록"
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 40)
-        header.addSubview(headerLabel)
-        tableView.tableHeaderView = header
-    }
-    
-    func configure() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
-    // MARK: - Actions
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
-        guard let addVC = self.storyboard?.instantiateViewController(withIdentifier: "AddViewController" ) as? AddViewController else { return }
-        addVC.title = "도서 추가하기"
-        navigationController?.pushViewController(addVC, animated: true)
-    }
-    // MARK: - TableView
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Book.BookData.count
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else { return UITableViewCell() }
-        cell.bookTitleLabel.text = Book.BookData[indexPath.row].title
-        cell.bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        cell.authorLabel.text = Book.BookData[indexPath.row].author
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BookCell else { return UICollectionViewCell() }
         cell.bookImageView.image = Book.BookData[indexPath.row].coverImage
+        cell.bookTitleLabel.text = Book.BookData[indexPath.row].title
+        cell.authorLabel.text = Book.BookData[indexPath.row].author
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController")
-                as? DetailViewController else { return }
-        detailVC.title = "상세 정보"
-        detailVC.index = indexPath.row
-        navigationController?.pushViewController(detailVC, animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let widthCount: CGFloat = 3
+        let interSpacing: CGFloat = 0
+        let widthSize: CGFloat = width - (interSpacing * (widthCount - 1))
+        return CGSize(width: widthSize, height: widthSize)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        detailVC.title = "상세 정보"
+        detailVC.index = indexPath.item
+        print(indexPath.item)
+        navigationController?.pushViewController(detailVC, animated: true)
+        collectionView.delegate = self
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
 }
 
