@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         data()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action:
-        #selector(saveButton))
+                                                                #selector(saveButton))
         navigationItem.rightBarButtonItem?.tintColor = .red
         titleTextField.font = UIFont.boldSystemFont(ofSize: 18)
         titleTextField.isEnabled = false
@@ -20,10 +20,17 @@ class DetailViewController: UIViewController {
     }
     
     func data() {
-        let data = Book.BookData[index!]
-        imageView.image = data.coverImage
-        titleTextField.text = "\(data.title!) / \(data.author!)"
-        descriptionTextField.text = data.introduction
+        if let index = index {
+            let data = Book.BookData[index]
+            imageView.image = data.coverImage
+            
+            if let title = data.title, let author = data.author {
+                titleTextField.text = "\(title) / \(author)"
+            }
+            descriptionTextField.text = data.introduction
+        } else {
+            print("index가 없습니다")
+        }
     }
     // MARK: - Actions
     @IBAction func deleteButton(_ sender: UIButton) {
@@ -32,19 +39,24 @@ class DetailViewController: UIViewController {
     
     @objc func saveButton() {
         let barItem = navigationItem.rightBarButtonItem!
-        var data = Book.BookData[index!]
-        if barItem.title == "수정" {
-            barItem.title = "저장"
-            titleTextField.isEnabled = true
-            descriptionTextField.isEditable = true
-            navigationItem.hidesBackButton = true
+        
+        if let index = index {
+            var data = Book.BookData[index]
+            if barItem.title == "수정" {
+                barItem.title = "저장"
+                titleTextField.isEnabled = true
+                descriptionTextField.isEditable = true
+                navigationItem.hidesBackButton = true
+            } else {
+                let title = titleTextField.text?.components(separatedBy: " / ")
+                data.coverImage = imageView.image
+                data.introduction = descriptionTextField.text
+                data.title = title![0]
+                data.author = title![1]
+                navigationController?.popViewController(animated: true)
+            }
         } else {
-            let title = titleTextField.text?.components(separatedBy: " / ")
-            data.coverImage = imageView.image
-            data.introduction = descriptionTextField.text
-            data.title = title![0]
-            data.author = title![1]
-            navigationController?.popViewController(animated: true)
+            print("index가 없습니다")
         }
     }
 }

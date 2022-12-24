@@ -44,28 +44,26 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Kkd-7a-38L" customClass="BookCell" customModule="MyBookRecord" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="279"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="166.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vmz-qB-V9m">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="279"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="54.5" height="166.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yIo-Xg-d08">
-                                                    <rect key="frame" x="0.0" y="10" width="135" height="189"/>
+                                                    <rect key="frame" x="0.0" y="10" width="54.5" height="76.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="189" id="2vz-cX-dQw"/>
-                                                        <constraint firstAttribute="width" constant="135" id="XhP-ER-jf3"/>
                                                         <constraint firstAttribute="width" secondItem="yIo-Xg-d08" secondAttribute="height" multiplier="1:1.4" id="YX2-ow-x16"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T7-tf-LhE">
-                                                    <rect key="frame" x="5" y="199" width="120" height="70"/>
+                                                    <rect key="frame" x="5" y="86.5" width="39.5" height="70"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwj-bH-9gn">
-                                                    <rect key="frame" x="5" y="259" width="33" height="16"/>
+                                                    <rect key="frame" x="5" y="146.5" width="33" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -84,7 +82,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="3T7-tf-LhE" secondAttribute="bottom" constant="10" id="rZv-gc-giZ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                                         <connections>
                                             <outlet property="authorLabel" destination="Lwj-bH-9gn" id="95g-gj-YzH"/>
                                             <outlet property="bookImageView" destination="yIo-Xg-d08" id="iAD-gY-aAM"/>
@@ -103,7 +101,14 @@
                             <constraint firstItem="d8z-pH-3YD" firstAttribute="leading" secondItem="MFf-aQ-sZ7" secondAttribute="leading" id="km2-gx-8s4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FDZ-b7-N2N"/>
+                    <navigationItem key="navigationItem" id="FDZ-b7-N2N">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="w5n-cw-4if">
+                            <color key="tintColor" red="0.79827183489999998" green="0.27529159489999999" blue="0.1968391988" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addButton:" destination="Jo2-B0-8UA" id="his-HA-9uw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="d8z-pH-3YD" id="ZPO-Yz-LGL"/>
                     </connections>
@@ -248,9 +253,6 @@
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
