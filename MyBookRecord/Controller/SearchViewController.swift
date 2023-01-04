@@ -15,9 +15,9 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTableView.dataSource = self
-        searchTableView.delegate = self
         setupSearchCotroller()
+        setUpTableView()
+        bookTitles()
     }
     
     func setupSearchCotroller() {
@@ -30,6 +30,19 @@ class SearchViewController: UIViewController {
     self.navigationItem.title = " 도서 검색"
     self.navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    func setupTableView() {
+        searchTableView.dataSource = self
+        searchTableView.delegate = self
+    }
+    
+    func bookTitles() {
+        for index in 0...8 {
+            if let bookTitle = Book.BookData[index].title {
+                bookNamesArray.append(bookTitle)
+            }
+        }
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating {
@@ -37,14 +50,9 @@ extension SearchViewController: UISearchResultsUpdating {
 // 설정하면 된다.
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        for index in 0...8 {
-            if let book = Book.BookData[index].title {
-            bookNamesArray.append(book)
-            }
-        }
-        self.filterArr = self.bookNamesArray.filter { $0.contains(text) }
+        
+        self.filterArr = self.bookNamesArray.filter { $0.hasPrefix(text) }
         self.searchTableView.reloadData()
-        dump(filterArr)
     }
 }
 
