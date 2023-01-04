@@ -19,6 +19,8 @@
 		1C1A9F952937AF91000CE51D /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1A9F942937AF91000CE51D /* BookCell.swift */; };
 		D04034EC293DE871006B2048 /* DetailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04034EB293DE871006B2048 /* DetailAlert.swift */; };
 		D04034EE2940EF0C006B2048 /* AddAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04034ED2940EF0C006B2048 /* AddAlert.swift */; };
+		D0B171B729643050002AD35D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B171B629643050002AD35D /* SearchViewController.swift */; };
+		D0B171B929643217002AD35D /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B171B829643217002AD35D /* SearchCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		1C1A9F942937AF91000CE51D /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		D04034EB293DE871006B2048 /* DetailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlert.swift; sourceTree = "<group>"; };
 		D04034ED2940EF0C006B2048 /* AddAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlert.swift; sourceTree = "<group>"; };
+		D0B171B629643050002AD35D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = MyBookRecord/Controller/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		D0B171B829643217002AD35D /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = MyBookRecord/View/SearchCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				1C1A9F7E2937A9AD000CE51D /* MainViewController.swift */,
 				1C1A9F902937ADDB000CE51D /* DetailViewController.swift */,
 				1C1A9F922937AE12000CE51D /* AddViewController.swift */,
+				D0B171B629643050002AD35D /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				1C1A9F942937AF91000CE51D /* BookCell.swift */,
+				D0B171B829643217002AD35D /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B171B729643050002AD35D /* SearchViewController.swift in Sources */,
+				D0B171B929643217002AD35D /* SearchCell.swift in Sources */,
 				1C1A9F912937ADDB000CE51D /* DetailViewController.swift in Sources */,
 				D04034EE2940EF0C006B2048 /* AddAlert.swift in Sources */,
 				1C1A9F7F2937A9AD000CE51D /* MainViewController.swift in Sources */,

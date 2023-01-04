@@ -21,6 +21,11 @@ class MainViewController: UIViewController {
     addVC.title = "도서 추가하기"
     self.navigationController?.pushViewController(addVC, animated: true)
     }
+    
+    @IBAction func searchButton(_ sender: UIBarButtonItem) {
+        guard let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -34,16 +39,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.bookImageView.image = Book.BookData[indexPath.row].coverImage
         cell.bookTitleLabel.text = Book.BookData[indexPath.row].title
         cell.authorLabel.text = Book.BookData[indexPath.row].author
-        cell.bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        cell.bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 13)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let widthCount: CGFloat = 3
-        let interSpacing: CGFloat = 20
-        let widthSize: CGFloat = width - (interSpacing * (widthCount - 1))
-        return CGSize(width: widthSize, height: widthSize)
+        let widthSize: CGFloat = width / widthCount
+        return CGSize(width: widthSize, height: widthSize * 2)
      }
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
